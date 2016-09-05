@@ -72,7 +72,7 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
             throw new \Exception('please set upload server');
         }
     }
-    
+
     public function doRequest()
     {
         $this->checkUploadServer();
@@ -80,7 +80,7 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
         if(!$this->photo_url){
             throw new \Exception('please set photo url');
         }
-        
+
         $get_upload_server = $this->upload_server->doRequest();
         if (!$get_upload_server) {
             $this->logger->error("not found upload server");
@@ -90,7 +90,7 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
         $post_data = array(
             "user_id" => $this->upload_server->getUserId(),
             "album_id" => $this->upload_server->getAlbumId(),
-            "photo" => new CURLFile($this->photo_url, 'image/jfif', basename($this->photo_url))
+            "photo" => new \CURLFile($this->photo_url, 'image/jfif', basename($this->photo_url))
         );
 
         $ch = curl_init();

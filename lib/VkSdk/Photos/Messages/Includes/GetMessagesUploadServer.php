@@ -36,13 +36,9 @@ class GetMessagesUploadServer extends Request
         }
 
         if (isset($json->response) && $json->response &&
-            isset($json->response->upload_url) && $json->response->upload_url &&
-            isset($json->response->album_id) && $json->response->album_id &&
-            isset($json->response->user_id) && $json->response->user_id
+            isset($json->response->upload_url) && $json->response->upload_url
         ) {
             $this->upload_url = $json->response->upload_url;
-            $this->album_id = $json->response->album_id;
-            $this->user_id = $json->response->user_id;
 
             return true;
         }

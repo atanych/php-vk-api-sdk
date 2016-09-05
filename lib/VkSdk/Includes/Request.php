@@ -13,9 +13,11 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     private $error_code;
     private $error_msg;
     private $response;
+    private $access_token;
 
-    public function __construct(LoggerInterface $loggerInterface = null)
+    public function __construct($access_token, LoggerInterface $loggerInterface = null)
     {
+        $this->access_token = $access_token;
         if (!$loggerInterface) {
             $loggerInterface = new Logger();
         }
@@ -87,16 +89,12 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 
     public function getResultApiUrl()
     {
-        $access_token = $this->getAccessToken();
-        if (!$access_token) {
-            $access_token = Config::getParam('access_token', true);
-        }
         $version = $this->getApiVersion();
         if (!$version) {
             $version = self::API_VERSION;
         }
 
-        $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $access_token;
+        $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $this->access_token;
 
         return $url;
     }

@@ -1,13 +1,13 @@
 {
-    "name": "programmis/php-vk-api-sdk",
+    "name": "atanych/php-vk-api-sdk",
     "description": "Lib for Vk Api",
-    "homepage": "https://github.com/programmis/php-vk-api-sdk",
+    "homepage": "https://github.com/atanych/php-vk-api-sdk",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Daniil Sazhin",
-            "email": "sazhin_daniil@mail.ru"
+            "name": "Vladimir Atanov",
+            "email": "atanych@gmail.com"
         }
     ],
     "minimum-stability": "dev",

@@ -90,8 +90,7 @@ class MessagesSend extends Request
         $this->setMethod("messages.send");
 
         $attachments = "";
-
-        if ($this->attachments) {
+        if (!empty($this->attachments)) {
             $first = true;
             foreach ($this->attachments as $attach) {
                 if (!$first) {
@@ -102,9 +101,9 @@ class MessagesSend extends Request
             }
         }
 
-        $this->setRequiredParams(array('message', 'attachment'));
+        $this->setRequiredParams(array('message'));
 
-        if ($attachments) {
+        if (!empty($attachments)) {
             $this->setParameter("attachment", $attachments);
         }
         if ($this->user_ids) {
