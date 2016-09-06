@@ -16,6 +16,23 @@ class MessageGetById extends Request
     private $audio;
     private $video;
     private $coords;
+    private $out;
+
+    /**
+     * @return mixed
+     */
+    public function getOut()
+    {
+        return $this->out;
+    }
+
+    /**
+     * @param mixed $out
+     */
+    public function setOut($out)
+    {
+        $this->out = $out;
+    }
 
     /**
      * @return mixed
@@ -139,6 +156,7 @@ class MessageGetById extends Request
             $response = $json->response->items[0];
             $this->setBody($response->body);
             $this->setUid($response->user_id);
+            $this->setOut($response->out);
             if (!empty($response->attachments)) {
                 foreach ($response->attachments as $attachment) {
                     switch ($attachment->type) {
