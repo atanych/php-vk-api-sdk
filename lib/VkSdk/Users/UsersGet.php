@@ -16,11 +16,11 @@ class UsersGet extends Request
     private $user_ids = [];
     private $fields   = [];
 
-    /** @var UserInfo[] $users_info */
-    private $users_info = [];
+    /** @var UserInfo $users_info */
+    private $users_info;
 
     /**
-     * @return Includes\UserInfo[]
+     * @return Includes\UserInfo
      */
     public function getUsersInfo()
     {
@@ -71,12 +71,12 @@ class UsersGet extends Request
 
         if (isset($json->response) && $json->response) {
             foreach ($json->response as $key => $ui) {
-                $this->users_info[$key] = new UserInfo();
-                $this->users_info[$key]->setId($ui->id);
-                $this->users_info[$key]->setFirstName($ui->first_name);
-                $this->users_info[$key]->setLastName($ui->last_name);
+                $this->users_info = new UserInfo();
+                $this->users_info->setId($ui->id);
+                $this->users_info->setFirstName($ui->first_name);
+                $this->users_info->setLastName($ui->last_name);
                 if (isset($ui->photo_200)) {
-                    $this->users_info[$key]->setPhoto($ui->photo_200);
+                    $this->users_info->setPhoto($ui->photo_200);
                 }
             }
 
