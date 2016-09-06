@@ -9,8 +9,24 @@ class UserInfo
     private $first_name = "";
     private $last_name = "";
     private $sex = 0;
-    private $photo_50;
+    private $photo;
     private $last_seen = [];
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
 
 
     public function setId($id)
@@ -47,17 +63,6 @@ class UserInfo
     {
         $this->sex = $sex;
         return $this;
-    }
-
-    public function setPhoto50($photo_50)
-    {
-        $this->photo_50 = $photo_50;
-        return $this;
-    }
-
-    public function getPhoto50()
-    {
-        return $this->photo_50;
     }
 
     public function getId()

@@ -5,5 +5,4 @@ $request = new \VkSdk\Users\UsersGet(null);
 $request->setUserId(11975057);
 $request->setField('photo_200');
 $request->doRequest();
-
-
+print_r($request->getUsersInfo());

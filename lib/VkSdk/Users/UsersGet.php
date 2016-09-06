@@ -14,7 +14,7 @@ class UsersGet extends Request
 {
 
     private $user_ids = [];
-    private $fields = [];
+    private $fields   = [];
 
     /** @var UserInfo[] $users_info */
     private $users_info = [];
@@ -75,8 +75,8 @@ class UsersGet extends Request
                 $this->users_info[$key]->setId($ui->id);
                 $this->users_info[$key]->setFirstName($ui->first_name);
                 $this->users_info[$key]->setLastName($ui->last_name);
-                if (isset($ui->sex)) {
-                    $this->users_info[$key]->setSex($ui->sex);
+                if (isset($ui->photo_200)) {
+                    $this->users_info[$key]->setPhoto($ui->photo_200);
                 }
             }
 
