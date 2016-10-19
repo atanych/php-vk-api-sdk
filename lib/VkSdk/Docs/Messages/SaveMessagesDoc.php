@@ -52,7 +52,6 @@ class SaveMessagesDoc extends UploadMessagesDoc implements Doc
     
     public function doRequest()
     {
-        file_put_contents('/var/log/custom/log.txt', 'test', FILE_APPEND | LOCK_EX);
         $this->setMethod("docs.save");
 
         $this->checkUploadDoc();
