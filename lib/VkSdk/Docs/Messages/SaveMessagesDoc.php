@@ -52,6 +52,7 @@ class SaveMessagesDoc extends UploadMessagesDoc implements Doc
     
     public function doRequest()
     {
+        file_put_contents('/var/log/custom/log.txt', 'test', FILE_APPEND | LOCK_EX);
         $this->setMethod("docs.save");
 
         $this->checkUploadDoc();
@@ -59,7 +60,7 @@ class SaveMessagesDoc extends UploadMessagesDoc implements Doc
         $vk_upload = $this->vk_upload_file->doRequest();
 
         if (!$vk_upload) {
-            $this->logger->error("upload wall photo result is empty");
+            $this->logger->error("upload wall pdf result is empty");
             return false;
         }
 
