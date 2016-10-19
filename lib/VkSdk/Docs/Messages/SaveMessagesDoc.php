@@ -44,7 +44,7 @@ class SaveMessagesDoc extends UploadMessagesDoc implements Doc
         return $this->media_id;
     }
 
-    public function checkUploadPhoto(){
+    public function checkUploadDoc(){
         if(!$this->vk_upload_file){
             throw new \Exception('please set upload file');
         }
